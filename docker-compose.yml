@@ -1,0 +1,21 @@
+services:
+  mosquitto:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: remote-sensing-edge-broker:1.0
+    container_name: remote-sensing-edge-broker
+
+    restart: unless-stopped
+
+    ports:
+      - "49664:1883"
+      - "49665:8883"
+
+    volumes:
+      - mosquitto-data:/mosquitto/data
+      - ./certs:/mosquitto/config/certs:ro
+
+volumes:
+  mosquitto-data:

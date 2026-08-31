@@ -1,0 +1,7 @@
+#NodeRed as publisher
+user nodered
+topic write plant/gas/#
+
+#HighByte as subscriber
+user highbyte
+topic read plant/gas/#
